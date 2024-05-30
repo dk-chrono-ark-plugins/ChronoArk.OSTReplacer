@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <AssemblyName>OSTReplacer</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <LangVersion>12.0</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputPath>$(ChronoArkGamePath)\Mod\$(AssemblyName)\Assemblies\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <ReferencePath>$(ChronoArkGamePath)/ChronoArk_Data/Managed</ReferencePath>
+        <ProjectGuid>{56A0D705-D25B-4271-9297-E277DBA737C7}</ProjectGuid>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <RootNamespace>Ost</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <OutputPath>$(ChronoArkGamePath)\Mod\$(AssemblyName)\Assemblies\</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <DebugSymbols>false</DebugSymbols>
+        <OutputPath>$(ChronoArkGamePath)\Mod\$(AssemblyName)\Assemblies\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <LangVersion>12.0</LangVersion>
+        <ErrorReport>prompt</ErrorReport>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Accessibility">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Beardy.BeardsGridLayoutGroup.Runtime">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="DOTween">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="ModConfigurationMenu">
+            <HintPath>D:\Program Files (x86)\Steam\steamapps\common\Chrono Ark\Mod\ModConfigurationMenu\Assemblies\ModConfigurationMenu.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\Mono.Cecil.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\Mono.Cecil.Mdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\Mono.Cecil.Pdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\Mono.Cecil.Rocks.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.RuntimeDetour, Version=22.1.29.1, Culture=neutral, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\MonoMod.RuntimeDetour.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Utils, Version=22.1.29.1, Culture=neutral, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\Common\bin\MonoMod.Utils.dll</HintPath>
+        </Reference>
+        <Reference Include="mscorlib">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="netstandard">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>D:\Program Files (x86)\Steam\steamapps\common\Chrono Ark\ChronoArk_Data\Managed\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="NLog">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="RestSharp">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="spine-unity-examples">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="spine-unity">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.ComponentModel.Composition">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.ComponentModel.DataAnnotations">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Configuration">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Configuration.Install">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Data">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Diagnostics.StackTrace">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Drawing">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.EnterpriseServices">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Globalization.Extensions">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.IdentityModel">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.IdentityModel.Selectors">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.IO.Compression">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.IO.Compression.FileSystem">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Messaging">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Net.Http">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Numerics">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Runtime.DurableInstancing">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Runtime.Serialization">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Runtime.Serialization.Xml">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.ServiceModel.Discovery">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.ServiceModel">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.ServiceModel.Internals">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Transactions">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Web.ApplicationServices">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Web">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Web.Services">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Windows.Forms">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Xaml">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Xml">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Xml.Linq">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Xml.XPath.XDocument">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.2D.Common.Runtime">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.2D.SpriteShape.Runtime">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.Addressables">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.Analytics.DataPrivacy">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.Analytics.StandardEvents">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.InternalAPIEngineBridge.001">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.MemoryProfiler">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.Postprocessing.Runtime">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.ResourceManager">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.ScriptableBuildPipeline">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AccessibilityModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AIModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ARModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.BaselibModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ClothModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterInputModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterRendererModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CrashReportingModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.DirectorModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.FileSystemHttpModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.GameCenterModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.GridModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.HotReloadModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.InputModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.LocalizationModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.Networking">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PerformanceReportingModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.Physics2DModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ProfilerModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.Purchasing">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ScreenCaptureModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.SharedInternalsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.SpatialTracking">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteMaskModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteShapeModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.StreamingModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.StyleSheetsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.SubstanceModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainPhysicsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextCoreModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TilemapModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.Timeline">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TimelineModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TLSModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIElementsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UmbraModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UNETModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityAnalyticsModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityConnectModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityTestProtocolModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VehiclesModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VFXModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VideoModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VRModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.WindModule">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.XRModule">
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <!-- Compile ItemGroup Start-->
+    <ItemGroup>
+        <Compile Include="Api\ISwapRule.cs"/>
+        <Compile Include="Api\ITrack.cs"/>
+        <Compile Include="Common\OstLog.cs"/>
+        <Compile Include="Implementation\OstControlGroup.cs"/>
+        <Compile Include="Implementation\OstCustomTrack.cs"/>
+        <Compile Include="Implementation\OstManager.cs"/>
+        <Compile Include="Implementation\OstPage.cs"/>
+        <Compile Include="Implementation\OstPlayer.cs"/>
+        <Compile Include="Implementation\OstStub.cs"/>
+        <Compile Include="Implementation\OstSwapGenerator.cs"/>
+        <Compile Include="Implementation\OstTrack.cs"/>
+        <Compile Include="Implementation\OstTrackEntry.cs"/>
+        <Compile Include="Implementation\Patches\MasterAudioPatch.cs"/>
+        <Compile Include="Implementation\OstSwapRule.cs"/>
+        <Compile Include="OstConfig.cs"/>
+        <Compile Include="OstMod.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="PolySharp">
+            <Version>1.14.1</Version>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+    <!-- Compile ItemGroup End-->
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <PropertyGroup>
+        <PostBuildEvent>DEL /F /Q "$(TargetDir)System.dll" 2&gt;NUL
+            DEL /F /Q "$(TargetDir)System.Core.dll" 2&gt;NUL
+            DEL /F /Q "$(TargetDir)$(AssemblyName).pdb" 2&gt;NUL
+            DEL /F /Q "$(TargetDir)Newtonsoft.Json.dll" 2&gt;NUL
+        </PostBuildEvent>
+    </PropertyGroup>
+</Project>
